@@ -1,39 +1,93 @@
+ROUTEREK
 SITE_1
------------------------------R1
+-----------------------------site1-1
 en
 conf t
-hostname R1
+hostname site1-1
+
+-----------------------------site1-2
+
+en
+conf t
+hostname site1-2
+
+-----------------------------site1-3
+
+en
+conf t
+hostname site1-3
+
 
 SITE_2
------------------------------R2
+-----------------------------site2-1
 en
 conf t
-hostname R2
+hostname site2-1
 
------------------------------R3
+-----------------------------site2-2
 en
 conf t
-hostname R3
+hostname site2-2
 
------------------------------R4
-en
-conf t
-hostname R4
 
 SITE_3
-----------------------------ISP1
+----------------------------site3-1
 en
 conf t
 hostname ISP1
 
 
-----------------------------ISP2
+----------------------------site3-2
 en
 conf t
 hostname ISP2
 
+SWITCHEk
 
-----------------------------ISP3
+---------------------------SW1-1
+
 en
 conf t
-hostname RISP3
+hostname SW1-1
+
+---------------------------SW1-2
+
+en
+conf t
+hostname SW1-2
+
+---------------------------SW1-3
+
+en
+conf t
+hostname SW1-3
+
+---------------------------SW2-1
+
+en
+conf t
+hostname SW2-1
+
+---------------------------SW2-2
+
+en
+conf t
+hostname Sw2-2
+
+---------------------------SW2-3
+
+en
+conf t
+hostname SW2-3
+
+---------------------------SW3-1
+
+en
+conf t
+hostname SW3-1
+
+---------------------------SW3-2
+
+en
+conf t
+hostname SW3-2

@@ -4,6 +4,65 @@ SITE_1
 en
 conf t
 hostname site1-1
+int gig0/1.11
+encapsulation dot 11
+ip add 192.168.1.1 255.255.255.224
+int gig0/1.12
+encapsulation dot 12
+ip add 192.168.1.33 255.255.255.224
+ip helper-address 
+int gig0/1.13
+encapsulation dot 13
+ip add 192.168.1.33 255.255.255.224
+encapsulation dot 14
+ip add 192.168.1.65 255.255.255.240
+int gig0/1.14
+encapsulation dot 15
+ip add 192.168.1.1 255.255.255.248
+int gig0/1.15
+encapsulation dot 16
+ip add 192.168.1.89 255.255.255.248
+int gig0/1.16
+encapsulation dot 17
+ip add 192.168.1.97 255.255.255.248
+int gig0/1.17
+encapsulation dot 18
+ip add 192.168.1.105 255.255.255.248
+int gig0/1.18
+encapsulation dot 19
+ip add 192.168.1.113 255.255.255.248
+int gig0/1.19
+encapsulation dot 20
+ip add 192.168.1.121 255.255.255.248
+int gig0/1.20
+encapsulation dot 21
+ip add 192.168.1.129 255.255.255.248
+int gig0/1.21
+encapsulation dot 22
+ip add 192.168.1.137 255.255.255.252
+
+ip dhcp pool targyalo
+network 192.168.1.0 255.255.255.224
+default-router 192.168.1.1
+ip dhcp pool ugyfelszolgalat
+network 192.168.1.32 255.255.255.224
+default-router 192.168.1.33
+ip dhcp pool fiokvezetok
+network 192.168.1.65 255.255.255.240
+default-router 192.168.1.33
+ip dhcp pool penz-tanacs
+network 192.168.1.81 255.255.255.248
+default-router 192.168.1.33
+ip dhcp pool marketing-comms
+network 192.168.1.89 255.255.255.248
+default-router 192.168.1.33
+ip dhcp pool kockazat-comp
+network 192.168.1.32 255.255.255.248
+default-router 192.168.1.33
+
+int range fa0/21-22
+switchport mode trunk
+swithcport trunk allowed vlan 11,12,13,14,15,16,17,18,19,20,21
 
 -----------------------------site1-2
 
@@ -49,45 +108,237 @@ SWITCHEk
 en
 conf t
 hostname SW1-1
+vlan 11
+name targyalo
+vlan 12
+name telefon-tablet-laptop
+vlan 13
+name ugyfelszolgalat
+vlan 14
+name nyomtatok
+vlan 15
+name fiokvezetok
+vlan 16
+penz-tanacs
+vlan 17
+name marketing-comms
+vlan 18
+name kockazat comp
+vlan 19
+name management
+vlan 20
+name szerverek
+vlan 21
+name vezetok
+vlan 99
+name spam
+
+int gig0/1
+switchport mode trunk
+switchport trunk allowed vlan 11,12,13,14,15,16,17,18,19,20,21,99
+switchport trunk native vlan 99
+int fa0/1
+switchport mode access
+switchport access vlan 19
+int range fa0/10-14 
+switchport mode access
+switchport access vlan 20
 
 ---------------------------SW1-2
 
 en
 conf t
 hostname SW1-2
-
+en
+conf t
+hostname SW1-1
+vlan 11
+name targyalo
+vlan 12
+name telefon-tablet-laptop
+vlan 13
+name ugyfelszolgalat
+vlan 14
+name nyomtatok
+vlan 15
+name fiokvezetok
+vlan 16
+penz-tanacs
+vlan 17
+name marketing-comms
+vlan 18
+name kockazat comp
+vlan 19
+name management
+vlan 20
+name szerverek
+vlan 21
+vezetok
 ---------------------------SW1-3
 
 en
 conf t
 hostname SW1-3
-
+en
+conf t
+hostname SW1-1
+vlan 11
+name targyalo
+vlan 12
+name telefon-tablet-laptop
+vlan 13
+name ugyfelszolgalat
+vlan 14
+name nyomtatok
+vlan 15
+name fiokvezetok
+vlan 16
+penz-tanacs
+vlan 17
+name marketing-comms
+vlan 18
+name kockazat comp
+vlan 19
+name management
+vlan 21
+vezetok
 ---------------------------SW2-1
 
 en
 conf t
 hostname SW2-1
-
+en
+conf t
+hostname SW1-1
+vlan 11
+name targyalo
+vlan 12
+name telefon-tablet-laptop
+vlan 13
+name ugyfelszolgalat
+vlan 14
+name nyomtatok
+vlan 15
+name fiokvezetok
+vlan 16
+penz-tanacs
+vlan 17
+name marketing-comms
+vlan 18
+name kockazat comp
+vlan 19
+name management
+vlan 21
+vezetok
 ---------------------------SW2-2
 
 en
 conf t
 hostname Sw2-2
-
+en
+conf t
+hostname SW1-1
+vlan 11
+name targyalo
+vlan 12
+name telefon-tablet-laptop
+vlan 13
+name ugyfelszolgalat
+vlan 14
+name nyomtatok
+vlan 15
+name fiokvezetok
+vlan 16
+penz-tanacs
+vlan 17
+name marketing-comms
+vlan 18
+name kockazat comp
+vlan 19
+name management
+vlan 21
+vezetok
 ---------------------------SW2-3
 
 en
 conf t
 hostname SW2-3
-
+en
+conf t
+hostname SW1-1
+vlan 11
+name targyalo
+vlan 12
+name telefon-tablet-laptop
+vlan 13
+name ugyfelszolgalat
+vlan 14
+name nyomtatok
+vlan 15
+name fiokvezetok
+vlan 16
+penz-tanacs
+vlan 17
+name marketing-comms
+vlan 18
+name kockazat comp
+vlan 19
+name management
+vlan 21
+vezetok
 ---------------------------SW3-1
 
 en
 conf t
 hostname SW3-1
-
+en
+conf t
+hostname SW1-1
+vlan 11
+name targyalo
+vlan 12
+name telefon-tablet-laptop
+vlan 13
+name ugyfelszolgalat
+vlan 14
+name nyomtatok
+vlan 15
+name fiokvezetok
+vlan 16
+penz-tanacs
+vlan 17
+name marketing-comms
+vlan 18
+name kockazat comp
+vlan 19
+name management
+vlan 21
+vezetok
 ---------------------------SW3-2
 
 en
 conf t
 hostname SW3-2
+en
+conf t
+hostname SW1-1
+vlan 11
+name targyalo
+vlan 12
+name telefon-tablet-laptop
+vlan 13
+name ugyfelszolgalat
+vlan 14
+name nyomtatok
+vlan 15
+name fiokvezetok
+vlan 16
+penz-tanacs
+vlan 17
+name marketing-comms
+vlan 18
+name kockazat comp
+vlan 19
+name management
+vlan 21
+vezetok

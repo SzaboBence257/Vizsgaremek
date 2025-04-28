@@ -251,6 +251,39 @@ en
 conf t
 hostname SW2-1
 
+vlan 12
+name dolgozoi-wifi
+vlan 13
+name nyomtatok
+vlan 15
+name dolgozok
+vlan 16
+name management
+vlan 17
+name vezetoi
+vlan 99
+
+int fa0/1 
+switchport mode access
+switchport access vlan 12
+
+int range fa0/2-6
+switchport mode access 
+switchport access vlan 15
+
+int fa0/7
+switchport mode access
+switchport access vlan 16
+
+int fa0/8
+switchport mode access 
+switchport access vlan 17
+
+int range fa0/9-10
+switchport mode access
+switchport access vlan 13
+
+
 ---------------------------SW2-2
 
 en
@@ -258,11 +291,53 @@ conf t
 hostname Sw2-2
 en
 
+vlan 10
+name guest-wifi
+vlan 11
+name public-pc
+vlan 13
+name nyomtatok
+vlan 16
+name management
+vlan 99
+
+int fa0/1
+switchport mode access
+switchport access vlan 10
+
+int range fa0/2-11
+switchport mode access 
+switchport access vlan 11
+
+int range fa0/12-13
+switchport mode access 
+switchport access vlan 13
+
+int fa0/24
+switchport mode access 
+switchport access vlan 16
+
 ---------------------------SW3-1
 
 en
 conf t
 hostname SW3-1
+
+vlan 10
+name guest-wifi
+vlan 11
+name public-pc
+vlan 12
+name dolgozoi-wifi
+vlan 13
+name nyomtatok
+vlan 15
+name dolgozok
+vlan 16
+name management
+vlan 17
+name vezetoi
+vlan 99
 
 ---------------------------SW3-2
 

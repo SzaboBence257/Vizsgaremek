@@ -283,6 +283,11 @@ int range fa0/9-10
 switchport mode access
 switchport access vlan 13
 
+int range fa0/23-24
+channel-group 1 mode active
+int port-channel 1
+switchport mode trunk
+switchport trunk allowed vlan 10,11,12,13,15,16,17,99
 
 ---------------------------SW2-2
 
@@ -317,6 +322,12 @@ int fa0/24
 switchport mode access 
 switchport access vlan 16
 
+int range fa0/23-24
+channel-group 1 mode active
+int port-channel 1
+switchport mode trunk
+switchport trunk allowed vlan 10,11,12,13,15,16,17,99
+
 ---------------------------SW3-1
 
 en
@@ -339,6 +350,22 @@ vlan 17
 name vezetoi
 vlan 99
 
+int 
+switchport mode trunk
+switchport trunk allowed vlan 10,11,12,13,15,16,17,99
+switchport trunk native vlan 99
+int range 
+channel-group 1 mode active
+int port-channel 1
+switchport mode trunk
+switchport trunk allowed vlan 10,11,12,13,15,16,17,99
+switchport trunk native vlan 99
+int range 
+channel-group 2 mode active 
+int port-channel 2
+switchport mode trunk
+switchport trunk allowed vlan 10,11,12,13,15,16,17,99
+switchport trunk native vlan 99
 ---------------------------SW3-2
 
 en

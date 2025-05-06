@@ -139,18 +139,45 @@ en
 conf t
 hostname ISP1
 
+int gig0/0
+ip address 192.168.1.201
+no sh
+int se0/3/1
+ip address 10.10.10.1 255.255.255.252
+no sh
+int se0/3/0
+ip address 10.10.10.9 255.255.255.252
+no sh
 --------------------------ISP2
 
 en
 conf t
 hostname ISP2
 
+int gig0/0
+ip address 192.168.2.201 255.255.255.252
+no sh
+int se0/3/1
+ip address 10.10.10.10 255.255.255.252
+no sh
+int se0/3/0
+ip address 10.10.10.5 255.255.255.252
+no sh
 --------------------------ISP3
 
 en
 conf t
 hostname ISP3
 
+int gig0/0
+ip address 192.168.3.201 255.255.255.252
+no sh
+int se0/3/1
+ip address 10.10.10.2 255.255.255.252
+no sh
+int se0/3/0
+ip address 10.10.10.6 255.255.255.252
+no sh
 ---------------------SWITCHEk---------------------
 
 ---------------------------SW1-1

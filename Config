@@ -6,6 +6,11 @@ en
 conf t
 hostname site1-1
 
+ipv6 unicast-routing
+int gig0/0
+ipv6 address 2001:abc:100:1::1/64
+int gig0/1
+ipv6 address 2001:abc:100:2::1/64
 
 
 -----------------------------SITE1_2
@@ -51,6 +56,11 @@ ip dhcp pool management
 network 192.168.1.96 255.255.255.252
 default-network 192.168.1.97
 
+ipv6 unicast-routing
+int gig0/0
+ipv6 address 2001:abc:100:3::1/64
+int gig0/1
+ipv6 address 2001:abc:100:1::2/64
 -----------------------------SITE1_3
 #nyilvanos reszleg#
 en
@@ -81,6 +91,11 @@ default-router 192.168.1.33
 ip dhcp pool management
 network 192.168.1.96 255.255.255.252
 default-network 192.168.1.97
+ipv6 unicast-routing
+int gig0/0
+ipv6 address 2001:abc:100:4::1/64
+int gig0/1
+ipv6 address 2001:abc:100:2::2/64
 -----------------------------SITE1_4
 #szerver reszleg#
 en
@@ -93,6 +108,11 @@ encapsulation dot 14
 ip add 192.168.1.81 255.255.255.248
 no sh
 
+ipv6 unicast-routing
+int gig0/0
+ipv6 address 2001:abc:100:3::2/64
+int gig0/1
+ipv6 address 2001:abc:100:4::2/64
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 SITE_2
